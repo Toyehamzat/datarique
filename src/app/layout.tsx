@@ -4,7 +4,7 @@ import "./globals.css";
 import Navbar from "@/component/common/navbar";
 import Footer from "@/component/common/footer";
 import StructuredData from "@/component/common/structured-data";
-
+import CTASection from "@/component/common/cta-section";
 const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],
@@ -139,6 +139,7 @@ export default function RootLayout({
           <div className="flex relative flex-col gap-2.5 py-5 w-full bg-transparent font-geist scroll-smooth">
             <Navbar />
             <div className="mt-20 md:mt-20">{children}</div>
+            <CTASection />
             <Footer />
           </div>
         </div>
