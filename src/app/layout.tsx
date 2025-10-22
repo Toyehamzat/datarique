@@ -17,7 +17,8 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: {
-    default: "Datarique - Expert Data Analytics Training, Consultation & Services",
+    default:
+      "Datarique - Expert Data Analytics Training, Consultation & Services",
     template: "%s | Datarique - Your Direction for Data",
   },
   description:
@@ -46,11 +47,17 @@ export const metadata: Metadata = {
   applicationName: "Datarique",
   category: "Education & Business Analytics",
   classification: "Data Analytics Training and Consultation",
+  icons: {
+    icon: "/icon.svg",
+    apple: "/icon.svg",
+  },
   openGraph: {
     type: "website",
-    locale: "en_US",
+    locale: "en_NG",
+    alternateLocale: ["en_US", "en_GB", "en_KE", "en_ZA", "en_GH"],
     url: "https://datariqueltd.com",
-    title: "Datarique - Expert Data Analytics Training, Consultation & Services",
+    title:
+      "Datarique - Expert Data Analytics Training, Consultation & Services",
     description:
       "Transform your business with expert data analytics training, consultation, and analytics-as-a-service. Learn data analysis, business intelligence, and make data-driven decisions.",
     siteName: "Datarique",
@@ -68,7 +75,9 @@ export const metadata: Metadata = {
     title: "Datarique - Expert Data Analytics Training & Consultation",
     description:
       "Transform your business with expert data analytics training, consultation, and analytics-as-a-service. Learn from industry professionals.",
-    images: ["https://i.pinimg.com/736x/4c/d3/71/4cd3711fd6ce1e9093c94007433b7abf.jpg"],
+    images: [
+      "https://i.pinimg.com/736x/4c/d3/71/4cd3711fd6ce1e9093c94007433b7abf.jpg",
+    ],
     creator: "@datarique",
   },
   robots: {
@@ -106,9 +115,7 @@ export default function RootLayout({
         <div className="min-h-screen mx-auto flex w-full justify-center px-4 max-w-[1320px] scroll-smooth text-black">
           <div className="flex relative flex-col gap-2.5 py-5 w-full bg-transparent font-geist scroll-smooth">
             <Navbar />
-            <div className="mt-20 md:mt-20">
-              {children}
-            </div>
+            <div className="mt-20 md:mt-20">{children}</div>
             <Footer />
           </div>
         </div>
