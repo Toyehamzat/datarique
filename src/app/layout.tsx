@@ -56,7 +56,7 @@ export const metadata: Metadata = {
     siteName: "Datarique",
     images: [
       {
-        url: "https://pin.it/ZZYHe3z8G",
+        url: "https://i.pinimg.com/736x/4c/d3/71/4cd3711fd6ce1e9093c94007433b7abf.jpg",
         width: 1200,
         height: 630,
         alt: "Datarique - Your Direction for Data Analytics Training and Services",
@@ -68,7 +68,7 @@ export const metadata: Metadata = {
     title: "Datarique - Expert Data Analytics Training & Consultation",
     description:
       "Transform your business with expert data analytics training, consultation, and analytics-as-a-service. Learn from industry professionals.",
-    images: ["https://pin.it/ZZYHe3z8G"],
+    images: ["https://i.pinimg.com/736x/4c/d3/71/4cd3711fd6ce1e9093c94007433b7abf.jpg"],
     creator: "@datarique",
   },
   robots: {
@@ -87,8 +87,6 @@ export const metadata: Metadata = {
   },
   verification: {
     google: "HhVluoNiWO6sxsbv_A9PVUo4MJN_mQqwdSyk1aRoOEk",
-    // yandex: "your-yandex-verification-code",
-    // bing: "your-bing-verification-code",
   },
 };
 
