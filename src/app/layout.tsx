@@ -86,7 +86,7 @@ export const metadata: Metadata = {
     canonical: "https://datariqueltd.com",
   },
   verification: {
-    google: "your-google-verification-code",
+    google: "HhVluoNiWO6sxsbv_A9PVUo4MJN_mQqwdSyk1aRoOEk",
     // yandex: "your-yandex-verification-code",
     // bing: "your-bing-verification-code",
   },
