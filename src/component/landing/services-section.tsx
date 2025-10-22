@@ -39,7 +39,7 @@ export default function ServicesSection() {
         { title: "Excel (General & Data Analytics)", href: "/course/excel" },
         { title: "SQL (All variants)", href: "/course/sql" },
         { title: "Power BI", href: "/course/powerbi" },
-        { title: "Looker Studio", href: "/course/looker" },
+        // { title: "Looker Studio", href: "/course/looker" },
       ],
       image: "/images/training.svg",
       icon: Folder,

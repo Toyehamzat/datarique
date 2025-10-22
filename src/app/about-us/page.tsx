@@ -1,3 +1,6 @@
+import HeroSection from "@/component/about-us/about-hero-section";
+import CoreValues from "@/component/about-us/core-values";
+import OurStory from "@/component/about-us/our-story";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -9,12 +12,9 @@ export const metadata: Metadata = {
 export default function AboutUsPage() {
   return (
     <div className="flex flex-col gap-2.5 scroll-smooth">
-      <div className="text-black bg-white rounded-[20px] shadow-xs p-10">
-        <h1 className="text-4xl font-bold mb-6">About Us</h1>
-        <p className="text-lg">
-          Welcome to Datarique - Your Direction for Data
-        </p>
-      </div>
+      <HeroSection />
+      <CoreValues />
+      <OurStory />
     </div>
   );
 }

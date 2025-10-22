@@ -1,7 +1,7 @@
 "use client";
 import Image from "next/image";
 import { motion } from "framer-motion";
-import { fadeInVariants, defaultTransition, defaultViewport, staggerChildren } from "@/lib/motion";
+import { fadeInVariants, defaultTransition, fastTransition, staggerChildren } from "@/lib/motion";
 
 export default function WhyChooseUsSection() {
   const reasons = [
@@ -15,7 +15,7 @@ export default function WhyChooseUsSection() {
       ),
       description:
         "From securing analytics to implementing dashboards, we're your one-stop data hub.",
-      image: "/images/pixel.svg",
+      image: "/images/endToend.svg",
     },
     {
       title: (
@@ -27,7 +27,7 @@ export default function WhyChooseUsSection() {
       ),
       description:
         "Learn directly from certified data professionals with real-world experience.",
-      image: "/images/pixel.svg",
+      image: "/images/expert.svg",
     },
     {
       title: (
@@ -39,7 +39,7 @@ export default function WhyChooseUsSection() {
       ),
       description:
         "Stop hiring headaches — just subscribe and we become your analytics team.",
-      image: "/images/pixel.svg",
+      image: "/images/plug.svg",
     },
     {
       title: (
@@ -51,7 +51,7 @@ export default function WhyChooseUsSection() {
       ),
       description:
         "Speak to real analysts who understand your goals and guide you personally.",
-      image: "/images/pixel.svg",
+      image: "/images/human.svg",
     },
   ];
 
@@ -59,11 +59,15 @@ export default function WhyChooseUsSection() {
     <motion.section
       initial="hidden"
       whileInView="visible"
-      viewport={defaultViewport}
+      viewport={{ once: true, amount: 0.1 }}
       variants={staggerChildren}
       className="flex flex-col gap-2.5"
     >
-      <motion.div variants={fadeInVariants} transition={defaultTransition} className="bg-white rounded-[20px] py-6 md:pt-10 p-3 md:p-10  shadow-sm">
+      <motion.div 
+        variants={fadeInVariants} 
+        transition={fastTransition} 
+        className="bg-white rounded-[20px] py-6 md:pt-10 p-3 md:p-10  shadow-sm"
+      >
         <p className="text-sm font-semibold text-datarique-navy tracking-wider uppercase mb-3">
           VALUE PROPOSITION
         </p>
