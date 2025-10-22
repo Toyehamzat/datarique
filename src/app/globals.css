@@ -4,21 +4,24 @@
 :root {
   --background: #ffffff;
   --foreground: #171717;
-  --brand-orange: #E9790D; /* primary accent */
-  --brand-navy: #002247;   /* deep navy */
+  --datarique-orange: #E9790D; /* primary accent */
+  --datarique-navy: #002247;   /* deep navy */
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
+  --color-datarique-orange: #E9790D;
+  --color-datarique-navy: #002247;
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    --background: #F9F9F9;
+    /* --background: #171717; */
+    --foreground: #F9F9F9;
   }
 }
 
@@ -31,6 +34,17 @@ body {
      @import url('https://path.to/geist-font.css');
   */
   font-family: "Geist", "Geist Sans", Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+}
+
+/* Expose Geist as a CSS variable and utility class so it can be used via className
+   either with or without Tailwind. Example: <div className="font-geist">...</div>
+*/
+:root {
+  --font-geist: "Geist", "Geist Sans", Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+}
+
+.font-geist {
+  font-family: var(--font-geist) !important;
 }
 
 /* Optional: local @font-face fallback for Geist (commented out). Replace with actual src if you host the font files.
