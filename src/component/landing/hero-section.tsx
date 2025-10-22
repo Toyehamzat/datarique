@@ -1,9 +1,19 @@
+"use client";
 import { ArrowRight } from "lucide-react";
 import Image from "next/image";
+import { motion } from "framer-motion";
+import { fadeInUpVariants, defaultTransition, defaultViewport } from "@/lib/motion";
 
 export default function HeroSection() {
   return (
-    <div className="text-black bg-white rounded-[20px] shadow-xs md:p-10 p-3 pt-7 md:pt-10 flex flex-col gap-10">
+    <motion.div
+      initial="hidden"
+      whileInView="visible"
+      viewport={defaultViewport}
+      variants={fadeInUpVariants}
+      transition={defaultTransition}
+      className="text-black bg-white rounded-[20px] shadow-xs md:p-10 p-3 pt-7 md:pt-10 flex flex-col gap-10"
+    >
       <div className="flex flex-row justify-between">
         <div className="md:max-w-[400px] max-w-[315px] flex flex-col gap-6">
           <p className="font-semibold md:text-[72px] text-[36px] leading-[96%] tracking-[-0.04em]">
@@ -47,6 +57,6 @@ export default function HeroSection() {
           priority
         />
       </div>
-    </div>
+    </motion.div>
   );
 }

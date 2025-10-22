@@ -1,0 +1,26 @@
+<svg width="600" height="340" viewBox="0 0 600 340" fill="none" xmlns="http://www.w3.org/2000/svg">
+<rect opacity="0.05" width="100" height="100" fill="white"/>
+<rect opacity="0.05" x="100" width="100" height="100" fill="white"/>
+<rect opacity="0.05" x="200" width="100" height="100" fill="white"/>
+<rect opacity="0.1" x="300" width="100" height="100" fill="white"/>
+<rect opacity="0.1" x="400" width="100" height="100" fill="white"/>
+<rect opacity="0.2" x="500" width="100" height="100" fill="white"/>
+<rect opacity="0.05" y="100" width="100" height="100" fill="white"/>
+<rect opacity="0.05" x="100" y="100" width="100" height="100" fill="white"/>
+<rect opacity="0.05" x="200" y="100" width="100" height="100" fill="white"/>
+<rect opacity="0.1" x="300" y="100" width="100" height="100" fill="white"/>
+<rect opacity="0.4" x="400" y="100" width="100" height="100" fill="white"/>
+<rect opacity="0.4" x="500" y="100" width="100" height="100" fill="white"/>
+<rect opacity="0.1" y="200" width="100" height="100" fill="white"/>
+<rect opacity="0.1" x="100" y="200" width="100" height="100" fill="white"/>
+<rect opacity="0.1" x="200" y="200" width="100" height="100" fill="white"/>
+<rect opacity="0.4" x="300" y="200" width="100" height="100" fill="white"/>
+<rect opacity="0.3" x="400" y="200" width="100" height="100" fill="white"/>
+<rect opacity="0.2" x="500" y="200" width="100" height="100" fill="white"/>
+<rect opacity="0.1" y="300" width="100" height="100" fill="white"/>
+<rect opacity="0.5" x="100" y="300" width="100" height="100" fill="white"/>
+<rect opacity="0.5" x="200" y="300" width="100" height="100" fill="white"/>
+<rect opacity="0.3" x="300" y="300" width="100" height="100" fill="white"/>
+<rect opacity="0.5" x="400" y="300" width="100" height="100" fill="white"/>
+<rect opacity="0.2" x="500" y="300" width="100" height="100" fill="white"/>
+</svg>

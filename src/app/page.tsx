@@ -3,7 +3,6 @@ import NeedsSection from "@/component/landing/needs-section";
 import WhyChooseUsSection from "@/component/landing/why-choose-us-section";
 import ServicesSection from "@/component/landing/services-section";
 import TestimonialsSection from "@/component/landing/testimonials-section";
-import CTA from "@/component/landing/cta";
 
 export default function Home() {
   return (
@@ -13,7 +12,6 @@ export default function Home() {
       <WhyChooseUsSection />
       <ServicesSection />
       <TestimonialsSection />
-      <CTA />
     </div>
   );
 }
