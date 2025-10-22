@@ -3,6 +3,7 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/component/common/navbar";
 import Footer from "@/component/common/footer";
+import StructuredData from "@/component/common/structured-data";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -16,46 +17,59 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: {
-    default: "Datarique - Your Direction for Data",
-    template: "%s | Datarique",
+    default: "Datarique - Expert Data Analytics Training, Consultation & Services",
+    template: "%s | Datarique - Your Direction for Data",
   },
   description:
-    "Empowering individuals and businesses to make smarter decisions through data — with training, consultation, and analytics-as-a-service.",
+    "Transform your business with expert data analytics training, consultation, and analytics-as-a-service. Learn data analysis, business intelligence, and make data-driven decisions. Courses for beginners to professionals.",
   keywords: [
-    "data analytics",
-    "data training",
-    "business intelligence",
-    "analytics consultation",
-    "data courses",
+    "data analytics training",
+    "data analytics courses",
+    "business intelligence training",
+    "data analysis consultation",
     "analytics as a service",
+    "data science courses",
+    "learn data analytics",
+    "data visualization training",
+    "business analytics",
+    "data-driven decisions",
+    "data analytics for businesses",
+    "online data courses",
+    "data analytics certification",
+    "professional data training",
+    "analytics consultation services",
   ],
   authors: [{ name: "Datarique Limited" }],
   creator: "Datarique Limited",
   publisher: "Datarique Limited",
   metadataBase: new URL("https://datariqueltd.com"),
+  applicationName: "Datarique",
+  category: "Education & Business Analytics",
+  classification: "Data Analytics Training and Consultation",
   openGraph: {
     type: "website",
     locale: "en_US",
     url: "https://datariqueltd.com",
-    title: "Datarique - Your Direction for Data",
+    title: "Datarique - Expert Data Analytics Training, Consultation & Services",
     description:
-      "Empowering individuals and businesses to make smarter decisions through data — with training, consultation, and analytics-as-a-service.",
+      "Transform your business with expert data analytics training, consultation, and analytics-as-a-service. Learn data analysis, business intelligence, and make data-driven decisions.",
     siteName: "Datarique",
     images: [
       {
-        url: "/images/logo.svg",
+        url: "https://pin.it/ZZYHe3z8G",
         width: 1200,
         height: 630,
-        alt: "Datarique - Your Direction for Data",
+        alt: "Datarique - Your Direction for Data Analytics Training and Services",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Datarique - Your Direction for Data",
+    title: "Datarique - Expert Data Analytics Training & Consultation",
     description:
-      "Empowering individuals and businesses to make smarter decisions through data — with training, consultation, and analytics-as-a-service.",
-    images: ["/images/logo.svg"],
+      "Transform your business with expert data analytics training, consultation, and analytics-as-a-service. Learn from industry professionals.",
+    images: ["https://pin.it/ZZYHe3z8G"],
+    creator: "@datarique",
   },
   robots: {
     index: true,
@@ -68,6 +82,14 @@ export const metadata: Metadata = {
       "max-snippet": -1,
     },
   },
+  alternates: {
+    canonical: "https://datariqueltd.com",
+  },
+  verification: {
+    google: "your-google-verification-code",
+    // yandex: "your-yandex-verification-code",
+    // bing: "your-bing-verification-code",
+  },
 };
 
 export default function RootLayout({
@@ -77,6 +99,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+      <head>
+        <StructuredData />
+      </head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
