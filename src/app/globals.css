@@ -1,6 +1,5 @@
 @import "tailwindcss";
 
-/* Brand color variables (added) */
 :root {
   --background: #ffffff;
   --foreground: #171717;
@@ -28,17 +27,8 @@
 body {
   background: var(--background);
   color: var(--foreground);
-  /* Geist font family with sensible fallbacks. */
-  /* If you host Geist locally, adjust the @font-face below or remove the CDN comment. */
-  /* CDN example (uncomment and adjust source if you have a URL):
-     @import url('https://path.to/geist-font.css');
-  */
   font-family: "Geist", "Geist Sans", Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
 }
-
-/* Expose Geist as a CSS variable and utility class so it can be used via className
-   either with or without Tailwind. Example: <div className="font-geist">...</div>
-*/
 :root {
   --font-geist: "Geist", "Geist Sans", Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
 }
@@ -46,13 +36,3 @@ body {
 .font-geist {
   font-family: var(--font-geist) !important;
 }
-
-/* Optional: local @font-face fallback for Geist (commented out). Replace with actual src if you host the font files.
-@font-face {
-  font-family: 'Geist';
-  src: url('/fonts/Geist-Regular.woff2') format('woff2');
-  font-weight: 400;
-  font-style: normal;
-  font-display: swap;
-}
-*/
