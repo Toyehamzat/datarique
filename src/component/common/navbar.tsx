@@ -16,7 +16,7 @@ import { ArrowRight, ChevronDown, Menu, X } from "lucide-react";
 
 export default function Navbar() {
   const navLinks = [
-    { href: "/about", label: "About us" },
+    { href: "/about-us", label: "About us" },
     { href: "#course", label: "Course", hasDropdown: true },
     { href: "/analytics", label: "Analytics" },
   ];
@@ -68,9 +68,9 @@ export default function Navbar() {
   });
 
   const courses = [
-    { href: "/course/intro", label: "Intro" },
-    { href: "/course/modules", label: "Modules" },
-    { href: "/course/pricing", label: "Pricing" },
+    { href: "/courses", label: "Intro" },
+    { href: "/courses", label: "Modules" },
+    { href: "/courses", label: "Pricing" },
   ];
 
   return (
