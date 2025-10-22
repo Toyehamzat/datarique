@@ -1,15 +1,19 @@
 import HeroSection from "@/component/landing/hero-section";
+import NeedsSection from "@/component/landing/needs-section";
+import WhyChooseUsSection from "@/component/landing/why-choose-us-section";
+import ServicesSection from "@/component/landing/services-section";
+import TestimonialsSection from "@/component/landing/testimonials-section";
+import CTA from "@/component/landing/cta";
 
 export default function Home() {
   return (
-    <div className="flex flex-col gap-2.5 scroll-smooth" >
-    <HeroSection/>
-      <div className="text-black bg-white h-96 rounded-[20px] shadow-xs p-10">
-        body
-      </div>
-      <div className="text-black bg-white h-96 rounded-[20px] shadow-xs p-10">
-        body
-      </div>
+    <div className="flex flex-col gap-2.5 scroll-smooth">
+      <HeroSection />
+      <NeedsSection />
+      <WhyChooseUsSection />
+      <ServicesSection />
+      <TestimonialsSection />
+      <CTA />
     </div>
   );
 }
