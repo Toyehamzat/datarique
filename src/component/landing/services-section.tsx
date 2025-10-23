@@ -44,7 +44,6 @@ export default function ServicesSection() {
         { title: "Excel (General & Data Analytics)" },
         { title: "SQL (All variants)" },
         { title: "Power BI" },
-        // { title: "Looker Studio", href: "/course/looker" },
       ],
       image: "/images/training.svg",
       icon: Folder,

@@ -16,9 +16,9 @@ import { ArrowRight, ChevronDown, Menu, X } from "lucide-react";
 
 export default function Navbar() {
   const navLinks = [
-    { href: "/about-us", label: "About us" },
     { href: "#course", label: "Course", hasDropdown: true },
     { href: "/analytics", label: "Analytics" },
+    { href: "/about-us", label: "About us" },
   ];
 
   const { scrollY } = useScroll();
@@ -71,7 +71,6 @@ export default function Navbar() {
     { href: "/courses", label: "SQL Mastery" },
     { href: "/courses", label: "Excel for Everyone" },
     { href: "/courses", label: "Power BI for Business" },
-    { href: "/courses", label: "Looker Studio" },
   ];
 
   return (

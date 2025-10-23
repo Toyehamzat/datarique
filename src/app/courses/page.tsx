@@ -52,18 +52,6 @@ export default function CoursesPage() {
       highlight: false,
     },
     {
-      title: "Looker Studio",
-      duration: "4 weeks",
-      certificate: "Looker Studio Practitioner",
-      description: "Create Google-powered dashboards that drive decisions.",
-      price: 80,
-      features: [
-        "Building reports from Sheets & BigQuery",
-        "Designing visuals that communicate",
-      ],
-      highlight: false,
-    },
-    {
       title: "Pro Bundle",
       duration: "5 weeks",
       certificate: "SQL Proficiency Certificate",
