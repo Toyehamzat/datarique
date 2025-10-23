@@ -8,11 +8,16 @@ import {
 } from "lucide-react";
 import Image from "next/image";
 import { motion } from "framer-motion";
-import { fadeInVariants, defaultTransition, defaultViewport } from "@/lib/motion";
+import {
+  fadeInVariants,
+  defaultTransition,
+  defaultViewport,
+} from "@/lib/motion";
+import Link from "next/link";
 
 interface ServiceItem {
   title: string;
-  href: string;
+  // href: string;
 }
 
 interface Service {
@@ -36,9 +41,9 @@ export default function ServicesSection() {
       buttonText: "Enroll Now",
       buttonHref: "/courses",
       items: [
-        { title: "Excel (General & Data Analytics)", href: "/course/excel" },
-        { title: "SQL (All variants)", href: "/course/sql" },
-        { title: "Power BI", href: "/course/powerbi" },
+        { title: "Excel (General & Data Analytics)" },
+        { title: "SQL (All variants)" },
+        { title: "Power BI" },
         // { title: "Looker Studio", href: "/course/looker" },
       ],
       image: "/images/training.svg",
@@ -52,9 +57,9 @@ export default function ServicesSection() {
       buttonText: "Subscribe to Analytics",
       buttonHref: "/analytics",
       items: [
-        { title: "Dashboard Creation", href: "#" },
-        { title: "Data Cleaning & transformation", href: "#" },
-        { title: "Predictive Analysis & Reporting", href: "#" },
+        { title: "Dashboard Creation" },
+        { title: "Data Cleaning & transformation" },
+        { title: "Predictive Analysis & Reporting" },
       ],
       image: "/images/pixel.svg",
       icon: ChartLine,
@@ -67,9 +72,9 @@ export default function ServicesSection() {
       buttonText: "Book a consultation",
       buttonHref: "/consultation",
       items: [
-        { title: "SME Data Strategy Sessions", href: "#" },
-        { title: "Data Pipeline Setups", href: "#" },
-        { title: "KPI Planning & Governance", href: "#" },
+        { title: "SME Data Strategy Sessions" },
+        { title: "Data Pipeline Setups" },
+        { title: "KPI Planning & Governance" },
       ],
       image: "/images/pixel.svg",
       icon: MessageCircle,
@@ -109,7 +114,7 @@ export default function ServicesSection() {
                   <p className="text-[#666666] text-base md:text-lg leading-relaxed mb-8 font-normal">
                     {service.description}
                   </p>
-                  <a
+                  <Link
                     href={service.buttonHref}
                     className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-datarique-orange hover:bg-datarique-orange/90 text-white font-medium transition-colors duration-200"
                   >
@@ -117,7 +122,7 @@ export default function ServicesSection() {
                     <div className="p-1 bg-orange-400 rounded-full">
                       <ArrowRight className="w-4 h-4" strokeWidth={2} />
                     </div>
-                  </a>
+                  </Link>
                 </div>
 
                 {/* Items List */}
@@ -125,9 +130,8 @@ export default function ServicesSection() {
                   {service.items.map((item, itemIndex) => {
                     const Icon = service.icon || Folder;
                     return (
-                      <a
+                      <div
                         key={itemIndex}
-                        href={item.href}
                         className="flex items-center justify-between p-4 border-b border-gray-200 rounded-xl hover:border-gray-300 hover:bg-gray-50 transition-all duration-200 group"
                       >
                         <div className="flex items-center gap-3">
@@ -143,24 +147,24 @@ export default function ServicesSection() {
                           className="w-5 h-5 text-gray-400 group-hover:text-gray-600 group-hover:translate-x-1 transition-all duration-200"
                           strokeWidth={1.5}
                         />
-                      </a>
+                      </div>
                     );
                   })}
                 </div>
               </div>
 
-                {/* Image */}
-                <div className="hidden md:block h-[590px] w-full lg:w-[540px] bg-datarique-navy rounded-lg mx-6 mb-6 relative overflow-hidden shrink-0 ">
+              {/* Image */}
+              <div className="hidden md:block h-[590px] w-full lg:w-[540px] bg-datarique-navy rounded-lg mx-6 mb-6 relative overflow-hidden shrink-0 ">
                 {/* Replace with actual images */}
                 {service.image && (
                   <Image
-                  src={service.image}
-                  alt={service.title}
-                  fill
-                  className="object-cover rounded-lg"
+                    src={service.image}
+                    alt={service.title}
+                    fill
+                    className="object-cover rounded-lg"
                   />
                 )}
-                </div>
+              </div>
             </div>
           </motion.section>
         );

@@ -58,7 +58,7 @@ export default function NeedsSection() {
                 key={index}
                 variants={fadeInVariants}
                 transition={{ ...defaultTransition, delay: index * 0.1 }}
-                className={`border-l-3 border-datarique-orange bg-white py-0 px-6 hover:shadow-md transition-shadow duration-200`}
+                className={`border-l-3 border-datarique-orange bg-white py-0 px-6 transition-shadow duration-200`}
               >
                 <h3 className="text-base md:text-lg font-semibold text-black mb-3">
                   {need.title}
@@ -66,7 +66,7 @@ export default function NeedsSection() {
                 <p className="text-[#666666] text-sm md:text-lg leading-relaxed mb-6 font-medium">
                   {need.description}
                 </p>
-                <button className="flex items-center gap-2 text-sm font-medium text-[#171717] hover:text-gray-900 transition-colors duration-200 border border-[#E5E5E5] py-2.5 px-4 rounded-4xl " >
+                <button className="flex cursor-pointer items-center gap-2 text-sm font-medium text-[#171717] hover:text-gray-900 transition-colors duration-200 border border-[#E5E5E5] py-2.5 px-4 rounded-4xl " >
                   <Icon className="w-4 h-4" strokeWidth={2} />
                   <span>{need.buttonText}</span>
                 </button>
