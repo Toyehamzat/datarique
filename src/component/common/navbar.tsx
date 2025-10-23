@@ -68,9 +68,10 @@ export default function Navbar() {
   });
 
   const courses = [
-    { href: "/courses", label: "Intro" },
-    { href: "/courses", label: "Modules" },
-    { href: "/courses", label: "Pricing" },
+    { href: "/courses", label: "SQL Mastery" },
+    { href: "/courses", label: "Excel for Everyone" },
+    { href: "/courses", label: "Power BI for Business" },
+    { href: "/courses", label: "Looker Studio" },
   ];
 
   return (
