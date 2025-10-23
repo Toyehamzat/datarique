@@ -135,8 +135,8 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        <div className="min-h-screen mx-auto flex w-full justify-center px-4 max-w-[1320px] scroll-smooth text-black">
-          <div className="flex relative flex-col gap-2.5 py-5 w-full bg-transparent font-geist scroll-smooth">
+        <div className="min-h-screen mx-auto flex w-full justify-center px-4 max-w-[1320px] text-black">
+          <div className="flex relative flex-col gap-2.5 py-5 w-full bg-transparent font-geist">
             <Navbar />
             <div className="mt-20 md:mt-20">{children}</div>
             <CTASection />
