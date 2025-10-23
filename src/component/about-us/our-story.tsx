@@ -3,7 +3,15 @@ import Image from "next/image";
 import { motion } from "framer-motion";
 import { fadeInLeftVariants, fadeInRightVariants, defaultTransition, defaultViewport } from "@/lib/motion";
 
-export default function OurStory() {
+interface OurStoryProps {
+  story?: string;
+}
+
+export default function OurStory({ story }: OurStoryProps) {
+  const defaultStory = `DaTarique began with one simple idea: data should not be a luxury. While big companies have analytics teams, small businesses often struggle to make sense of their numbers. We exist to change that — by being both a school for learners and a data department for SMEs. From our roots in Africa to clients worldwide, we're building a future where everyone can make better decisions through data.`;
+
+  const storyText = story && story.length > 0 ? story : defaultStory;
+
   return (
     <motion.div 
       initial="hidden"
@@ -20,21 +28,9 @@ export default function OurStory() {
           Our Story
         </h2>
         <div className="flex flex-col gap-3 md:gap-4 font-medium text-sm md:text-base lg:text-lg leading-[150%] tracking-[-0.01em] text-[#666666]">
-          <p>
-            DaTarique began with one simple idea: data should not be a luxury.
-          </p>
-          <p>
-            While big companies have analytics teams, small businesses often
-            struggle to make sense of their numbers.
-          </p>
-          <p>
-            We exist to change that — by being both a school for learners and a
-            data department for SMEs.
-          </p>
-          <p>
-            From our roots in Africa to clients worldwide, we&apos;re building a
-            future where everyone can make better decisions through data.
-          </p>
+          {storyText.split("\n\n").map((para, idx) => (
+            <p key={idx}>{para}</p>
+          ))}
         </div>
       </motion.div>
       <motion.div 

@@ -4,7 +4,12 @@ import Image from "next/image";
 import { motion } from "framer-motion";
 import { fadeInVariants, fadeInUpVariants, defaultTransition, staggerChildren } from "@/lib/motion";
 
-export default function HeroSection() {
+interface HeroProps {
+  title?: string;
+  description?: string;
+}
+
+export default function HeroSection({ title, description }: HeroProps) {
   return (
     <motion.div 
       initial="hidden"
@@ -31,26 +36,32 @@ export default function HeroSection() {
           transition={{ ...defaultTransition, delay: 0.1 }}
           className="font-semibold text-3xl md:text-5xl lg:text-[72px] leading-tight md:leading-[1.2] lg:leading-[69.12px] tracking-[-0.04em]"
         >
-          DaTarique mines data and direction.
+          {title ?? "DaTarique mines data and direction."}
         </motion.h1>
         <motion.div 
           variants={fadeInUpVariants}
           transition={{ ...defaultTransition, delay: 0.2 }}
           className="font-medium text-sm md:text-base lg:text-lg leading-[150%] tracking-[-0.01em] text-[#666666] flex flex-col gap-3 md:gap-4 w-full"
         >
-          <p>
-            DaTarique Limited is a data solutions company guiding individuals
-            and organizations toward smarter, evidence-driven decisions.
-          </p>
-          <p>
-            We merge Data and Direction — training learners, supporting SMEs,
-            and building systems that make sense of information.
-          </p>
-          <p>
-            Our name combines &quot;Data&quot; and &quot;Tariq&quot; (meaning
-            &quot;path&quot; or &quot;direction&quot;) — symbolizing our
-            mission: to help you find clarity, purpose, and growth through data.
-          </p>
+          {description ? (
+            <p>{description}</p>
+          ) : (
+            <>
+              <p>
+                DaTarique Limited is a data solutions company guiding individuals
+                and organizations toward smarter, evidence-driven decisions.
+              </p>
+              <p>
+                We merge Data and Direction — training learners, supporting SMEs,
+                and building systems that make sense of information.
+              </p>
+              <p>
+                Our name combines &quot;Data&quot; and &quot;Tariq&quot; (meaning
+                &quot;path&quot; or &quot;direction&quot;) — symbolizing our
+                mission: to help you find clarity, purpose, and growth through data.
+              </p>
+            </>
+          )}
         </motion.div>
       </div>
       <motion.div 
