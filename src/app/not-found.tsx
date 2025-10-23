@@ -10,7 +10,7 @@ export default function NotFound() {
       initial="hidden"
       animate="visible"
       variants={staggerChildren}
-      className="flex flex-col items-center justify-center min-h-[60vh] text-center px-4"
+      className="flex flex-col items-center justify-center min-h-screen text-center px-4"
     >
       <motion.div
         variants={fadeInVariants}
