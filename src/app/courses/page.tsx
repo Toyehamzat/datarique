@@ -30,7 +30,6 @@ export default function CoursesPage() {
       description:
         "Master the world's most used data tool — from formulas to dashboards.",
       price: 60,
-      // badge: "MOST ENROLLED",
       features: [
         "Data Cleaning, pivot tables, and charts",
         "Advanced formulas and automation",
