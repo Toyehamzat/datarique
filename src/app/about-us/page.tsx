@@ -32,7 +32,6 @@ export default async function AboutUsPage() {
   try {
     // getAboutPage returns the `data` object from Strapi (single-type)
     attrs = (await getAboutPage<AboutAttrs>()) ?? null;
-    console.log("About Us page attributes:", attrs);
   } catch (err) { 
     // keep attrs null on failure and components render sensible fallbacks
     console.error("Failed to fetch /about-page", err);
