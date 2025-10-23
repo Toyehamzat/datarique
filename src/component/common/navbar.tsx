@@ -214,6 +214,7 @@ export default function Navbar() {
                                   key={course.href}
                                   href={course.href}
                                   className="block px-4 py-2 rounded-md"
+                                  onClick={() => setIsMenuOpen(false)}
                                 >
                                   {course.label}
                                 </Link>
