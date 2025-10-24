@@ -4,7 +4,15 @@ import Image from "next/image";
 import { motion } from "framer-motion";
 import { fadeInUpVariants, defaultTransition, defaultViewport } from "@/lib/motion";
 
-export default function HeroSection() {
+interface HeroProps {
+  title?: string;
+  description?: string;
+}
+
+export default function HeroSection({ title, description }: HeroProps) {
+  const defaultTitle = "Your Direction for Data.";
+  const defaultDescription = "Empowering individuals and businesses to make smarter decisions through data — with training, consultation, and analytics-as-a-service.";
+
   return (
     <motion.div
       initial="hidden"
@@ -17,12 +25,10 @@ export default function HeroSection() {
       <div className="flex flex-row justify-between">
         <div className="md:max-w-[400px] max-w-[315px] flex flex-col gap-6">
           <p className="font-semibold md:text-[72px] text-[36px] leading-[96%] tracking-[-0.04em]">
-            Your Direction for Data.
+            {title ?? defaultTitle}
           </p>
           <p className="font-medium md:text-lg text-sm leading-[150%] text-[#666666] tracking-[-0.01em]">
-            Empowering individuals and businesses to make smarter decisions
-            through data — with training, consultation, and
-            analytics-as-a-service.
+            {description ?? defaultDescription}
           </p>
           <div className="flex gap-2.5 text-xs md-text-sm">
             <button className="px-4 py-2 rounded-full bg-transparent border border-[#E5E5E5] text-[#171717] cursor-pointer hover:bg-gray-100">

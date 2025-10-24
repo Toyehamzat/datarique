@@ -2,58 +2,53 @@
 import Image from "next/image";
 import { motion } from "framer-motion";
 import { fadeInVariants, defaultTransition, fastTransition, staggerChildren } from "@/lib/motion";
+import { Reason } from "@/types/home-page";
 
-export default function WhyChooseUsSection() {
-  const reasons = [
+interface WhyChooseUsSectionProps {
+  reasons?: Reason[];
+}
+
+export default function WhyChooseUsSection({ reasons }: WhyChooseUsSectionProps) {
+  const defaultReasons: Reason[] = [
     {
-      title: (
-        <>
-          End-to-End
-          <br />
-          Data Solutions
-        </>
-      ),
-      description:
-        "From securing analytics to implementing dashboards, we're your one-stop data hub.",
-      image: "/images/endToend.svg",
+      id: 1,
+      title: "End-to-End Data Solutions",
+      description: "From securing analytics to implementing dashboards, we're your one-stop data hub.",
     },
     {
-      title: (
-        <>
-          Expert-Led
-          <br />
-          Training
-        </>
-      ),
-      description:
-        "Learn directly from certified data professionals with real-world experience.",
-      image: "/images/expert.svg",
+      id: 2,
+      title: "Expert-Led Training",
+      description: "Learn directly from certified data professionals with real-world experience.",
     },
     {
-      title: (
-        <>
-          Plug and Play
-          <br />
-          Analytics
-        </>
-      ),
-      description:
-        "Stop hiring headaches — just subscribe and we become your analytics team.",
-      image: "/images/plug.svg",
+      id: 3,
+      title: "Plug and Play Analytics",
+      description: "Stop hiring headaches — just subscribe and we become your analytics team.",
     },
     {
-      title: (
-        <>
-          Human
-          <br />
-          Support
-        </>
-      ),
-      description:
-        "Speak to real analysts who understand your goals and guide you personally.",
-      image: "/images/human.svg",
+      id: 4,
+      title: "Human Support",
+      description: "Speak to real analysts who understand your goals and guide you personally.",
     },
   ];
+
+  const reasonsToRender = reasons && reasons.length > 0 ? reasons : defaultReasons;
+
+  // Helper to format title with line breaks
+  const formatTitle = (title: string) => {
+    const parts = title.split('\n');
+    if (parts.length === 1) return title;
+    return (
+      <>
+        {parts.map((part, i) => (
+          <span key={i}>
+            {part}
+            {i < parts.length - 1 && <br />}
+          </span>
+        ))}
+      </>
+    );
+  };
 
   return (
     <motion.section
@@ -80,16 +75,16 @@ export default function WhyChooseUsSection() {
 
       {/* Cards Grid */}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-2.5 bg-transparent rounded-[20px] shadow-sm">
-        {reasons.map((reason, index) => (
+        {reasonsToRender.map((reason, index) => (
           <motion.div
-            key={index}
+            key={reason.id || index}
             variants={fadeInVariants}
             transition={{ ...defaultTransition, delay: index * 0.1 }}
             className="bg-white transition-shadow duration-200 overflow-hidden rounded-[20px] p-3 md:p-6"
           >
             <div className="">
               <h3 className="text-base md:text-[28px] font-semibold text-black mb-3">
-                {reason.title}
+                {formatTitle(reason.title)}
               </h3>
               <p className="text-[#666666] text-sm md:text-lg leading-relaxed mb-6 font-normal">
                 {reason.description}
@@ -102,15 +97,11 @@ export default function WhyChooseUsSection() {
               style={{ maxWidth: "calc(100% - 0.1rem)" }}
             >
               <Image
-                src={reason.image}
-                alt={
-                  typeof reason.title === "string"
-                    ? reason.title
-                    : "Feature image"
-                }
-                width={400}
-                height={380}
-                className="w-full h-full object-cover rounded-lg"
+              src={reason.image?.url || "/images/pixel.svg"}
+              alt={reason.image?.alternativeText || reason.title}
+              width={400}
+              height={380}
+              className="w-full h-full object-cover rounded-lg"
               />
             </div>
           </motion.div>

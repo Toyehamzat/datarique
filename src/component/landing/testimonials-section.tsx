@@ -4,35 +4,42 @@ import Image from "next/image";
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { fadeInVariants, defaultTransition, defaultViewport } from "@/lib/motion";
+import { Testimonial } from "@/types/home-page";
 
-export default function TestimonialsSection() {
+interface TestimonialsSectionProps {
+  testimonials?: Testimonial[];
+}
+
+export default function TestimonialsSection({ testimonials }: TestimonialsSectionProps) {
   const [currentIndex, setCurrentIndex] = useState(0);
 
-  const testimonials = [
+  const defaultTestimonials: Testimonial[] = [
     {
-      quote:
-        "DaTarique transformed how our small business tracks performance — we get weekly reports like we're a big tech company.",
+      id: 1,
+      quote: "DaTarique transformed how our small business tracks performance — we get weekly reports like we're a big tech company.",
       author: "Grace, SME Owner",
     },
     {
-      quote:
-        "DaTarique transformed how our small business tracks performance — we get weekly reports like we're a big tech company.",
+      id: 2,
+      quote: "DaTarique transformed how our small business tracks performance — we get weekly reports like we're a big tech company.",
       author: "Grace, SME Owner",
     },
     {
-      quote:
-        "DaTarique transformed how our small business tracks performance — we get weekly reports like we're a big tech company.",
+      id: 3,
+      quote: "DaTarique transformed how our small business tracks performance — we get weekly reports like we're a big tech company.",
       author: "Grace, SME Owner",
     },
   ];
 
+  const testimonialsToRender = testimonials && testimonials.length > 0 ? testimonials : defaultTestimonials;
+
   const nextTestimonial = () => {
-    setCurrentIndex((prev) => (prev + 1) % testimonials.length);
+    setCurrentIndex((prev) => (prev + 1) % testimonialsToRender.length);
   };
 
   const prevTestimonial = () => {
     setCurrentIndex(
-      (prev) => (prev - 1 + testimonials.length) % testimonials.length
+      (prev) => (prev - 1 + testimonialsToRender.length) % testimonialsToRender.length
     );
   };
 
@@ -90,18 +97,18 @@ export default function TestimonialsSection() {
                 >
                   <blockquote className="mb-4">
                     <p className="text-[#000000] text-base leading-relaxed font-normal">
-                      &quot;{testimonials[currentIndex].quote}&quot;
+                      &quot;{testimonialsToRender[currentIndex].quote}&quot;
                     </p>
                   </blockquote>
                   <cite className="text-[#666666] text-sm font-medium not-italic">
-                    - {testimonials[currentIndex].author}
+                    - {testimonialsToRender[currentIndex].author}
                   </cite>
                 </motion.div>
               </AnimatePresence>
 
               {/* Dots Indicator */}
               <div className="flex justify-center gap-2 mt-6">
-                {testimonials.map((_, index) => (
+                {testimonialsToRender.map((_, index) => (
                   <button
                     key={index}
                     onClick={() => setCurrentIndex(index)}
@@ -119,9 +126,9 @@ export default function TestimonialsSection() {
 
           {/* Desktop Grid */}
           <div className="hidden md:grid md:grid-cols-2 lg:grid-cols-3 gap-6 bg-[#F9F9F9] p-6 rounded-[20px]">
-            {testimonials.map((testimonial, index) => (
+            {testimonialsToRender.map((testimonial, index) => (
               <motion.div
-                key={index}
+                key={testimonial.id || index}
                 variants={fadeInVariants}
                 transition={{ ...defaultTransition, delay: index * 0.1 }}
                 className="transition-shadow duration-200"

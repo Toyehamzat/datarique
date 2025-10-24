@@ -136,7 +136,7 @@ export default function Navbar() {
                       >
                         {courses.map((item) => (
                           <Link
-                            key={item.href}
+                            key={item.label}
                             href={item.href}
                             className="block px-3 py-2 hover:bg-[#F7F7F7] rounded-md"
                           >
