@@ -40,18 +40,48 @@ export async function fetchFromStrapi<T>(endpoint: string): Promise<T> {
   }
 
   return response.json();
-  
 }
 
 export async function getAboutPage<T>(): Promise<T> {
   try {
     // Strapi v5 uses populate=* instead of populate=deep
-    const data = await fetchFromStrapi<{ data: T }>(
-      "/about-page?populate=*"
-    );
+    const data = await fetchFromStrapi<{ data: T }>("/about-page?populate=*");
     return data.data;
   } catch (error) {
     console.error("Error fetching about page:", error);
+    throw error;
+  }
+}
+
+export async function getHomePage<T>(): Promise<T> {
+  try {
+    // Strapi v5 uses populate=* instead of populate=deep
+    const data = await fetchFromStrapi<{ data: T }>(
+      "/home-page?populate[needs]=*&populate[reasons][populate]=*&populate[services][populate]=*&populate[testimonials]=*"
+    );
+    return data.data;
+  } catch (error) {
+    console.error("Error fetching home page:", error);
+    throw error;
+  }
+}
+
+export async function getCoursesPage<T>(): Promise<T> {
+  try {
+    const data = await fetchFromStrapi<{ data: T }>("/courses?populate=*");
+    return data.data;
+  } catch (error) {
+    console.error("Error fetching courses page:", error);
+    throw error;
+  }
+}
+
+export async function getAnalyticsPage<T>(): Promise<T> {
+  try {
+    const data = await fetchFromStrapi<{ data: T }>("/analytics?populate=*");
+    return data.data;
+  } catch (error) {
+    console.error("Error fetching analytics page:", error);
     throw error;
   }
 }
