@@ -2,6 +2,8 @@ import { type CourseCardProps } from "@/component/courses/course-card";
 import HeroSection from "@/component/common/hero-section";
 import CoursesGrid from "@/component/courses/courses-grid";
 import type { Metadata } from "next";
+import { getCoursesPage } from "@/lib/strapi";
+import type { Course } from "@/types/home-page";
 
 export const metadata: Metadata = {
   title: "Courses - Datarique",
@@ -9,62 +11,29 @@ export const metadata: Metadata = {
     "Learn data analytics skills with expert-led courses in SQL, Excel, Power BI, and Looker Studio. From beginner to professional.",
 };
 
-export default function CoursesPage() {
-  const courses: CourseCardProps[] = [
-    {
-      title: "SQL Mastery",
-      duration: "5 weeks",
-      certificate: "SQL Proficiency Certificate",
-      description: "Learn how to query, clean, and analyze data efficiently.",
-      price: 80,
-      features: [
-        "SQL basics to advanced joins and subqueries",
-        "Data manipulation and optimization",
-      ],
-      highlight: false,
-    },
-    {
-      title: "Excel for Everyone",
-      duration: "4 weeks",
-      certificate: "Certificate Issued + Portfolio Project",
-      description:
-        "Master the world's most used data tool — from formulas to dashboards.",
-      price: 60,
-      features: [
-        "Data Cleaning, pivot tables, and charts",
-        "Advanced formulas and automation",
-        "Business reporting techniques",
-      ],
-      highlight: true,
-    },
-    {
-      title: "Power BI for Business",
-      duration: "6 weeks",
-      certificate: "Certified Power BI Analyst",
-      description: "Visualize and tell stories with your data using Power BI.",
-      price: 100,
-      features: [
-        "Building interactive dashboards",
-        "Connecting multiple data sources",
-        "Publishing and automating reports",
-      ],
-      highlight: false,
-    },
-    {
-      title: "Pro Bundle",
-      duration: "5 weeks",
-      certificate: "SQL Proficiency Certificate",
-      description: null,
-      price: 80,
-      features: [
-        "Access all four courses + 1-on-1 mentorship.",
-        "Learn by doing — and graduate with a job-ready portfolio.",
-      ],
-      highlight: false,
-      isPro: true,
-      buttonText: "Upgrade to Pro",
-    },
-  ];
+export default async function CoursesPage() {
+  // Fetch courses from Strapi
+  let coursesData: Course[] = [];
+  try {
+    coursesData = await getCoursesPage<Course[]>();
+  } catch (error) {
+    console.error("Failed to fetch courses:", error);
+  }
+
+  // Map Strapi courses to CourseCardProps
+  const courses: CourseCardProps[] = coursesData
+    .map((course) => ({
+      title: course.title,
+      duration: course.duration,
+      certificate: course.certification,
+      description: course.description,
+      price: parseFloat(course.price),
+      features: course.features.map((feature) => feature.text),
+      highlight: course.highlight,
+      isPro: course.isPro,
+      buttonText: course.buttonText,
+    }))
+    .reverse();
 
   return (
     <div className="flex flex-col gap-2.5 scroll-smooth">

@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import HeroSection from "@/component/common/hero-section";
 import { type CourseCardProps } from "@/component/courses/course-card";
 import CoursesGrid from "@/component/courses/courses-grid";
+import { getAnalyticsPage } from "@/lib/strapi";
+import type { Analytic } from "@/types/home-page";
 
 export const metadata: Metadata = {
   title: "Analytics Services - Datarique",
@@ -9,49 +11,27 @@ export const metadata: Metadata = {
     "Professional data analytics and consultation services to help your business make data-driven decisions and unlock insights from your data.",
 };
 
-export default function AnalyticsPage() {
-  const analytics: CourseCardProps[] = [
-    {
-      title: "Starter Plan",
-      analyticDescription: "Perfect for startups and small teams.",
-      price: 80,
-      features: [
-        "1 interactive dashboard",
-        "Monthly performance report",
-        "Basic data cleaning",
-        "Email & WhatsApp support",
-      ],
-      highlight: false,
-    },
-    {
-      title: "Growth Plan",
-      analyticDescription: "Ideal for scaling companies.",
-      price: 300,
-      // badge: "MOST ENROLLED",
-      features: [
-        "Everything in the Starter Plan",
-        "3 interactive dashboards",
-        "Weekly updates + analyst support",
-        "Trend forecasting",
-        "Process automation setup",
-      ],
-      highlight: true,
-    },
-    {
-      title: "Enterprise Plan",
-      analyticDescription:
-        "For complete analytics operations.",
-      price: 100,
-      features: [
-        "Everything in Growth Plan",
-        "End-to-end data management",
-        "Dedicated analyst + business review sessions",
-        "AI-assisted forecasting and automation",
-        "Priority Support",
-      ],
-      highlight: false,
-    },
-  ];
+export default async function AnalyticsPage() {
+  // Fetch analytics from Strapi
+  let analyticsData: Analytic[] = [];
+  try {
+    analyticsData = await getAnalyticsPage<Analytic[]>();
+  } catch (error) {
+    console.error("Failed to fetch analytics:", error);
+  }
+
+  // Map Strapi analytics to CourseCardProps
+  const analytics: CourseCardProps[] = analyticsData
+    .map((analytic) => ({
+      title: analytic.title,
+      analyticDescription: analytic.analyticDescription,
+      price: parseFloat(analytic.price),
+      features: analytic.features.map((feature) => feature.text),
+      highlight: analytic.highlight,
+      buttonText: analytic.btn_text,
+    }))
+    .reverse();
+
   return (
     <div className="flex flex-col gap-2.5 scroll-smooth">
       {/* Hero Section */}
