@@ -78,7 +78,7 @@ export default function Navbar() {
       <motion.nav
         initial={false}
         style={{ scale, y, opacity, boxShadow: "0px 4px 24px 0px #00000029" }}
-        className={`w-full bg-white/95 border border-[#DDDDDD] flex items-center justify-between px-6 h-16 rounded-[24px] md:rounded-[100px]`}
+        className={`w-full bg-white/95 border border-[#DDDDDD] flex items-center justify-between px-6 h-16 rounded-3xl md:rounded-[100px]`}
       >
         <div className="flex items-center gap-4">
           <Link href="/" className="flex items-center">
